@@ -1,0 +1,18 @@
+{
+  "collections": {
+    "users": {
+      "schema": {
+        "subscription": {
+          "type": "map",
+          "properties": {
+            "tier": { "type": "string" },
+            "billingCycle": { "type": "string" },
+            "status": { "type": "string" },
+            "expiryDate": { "type": "string", "optional": true }
+          }
+        },
+        "updatedAt": { "type": "timestamp" }
+      }
+    }
+  }
+}

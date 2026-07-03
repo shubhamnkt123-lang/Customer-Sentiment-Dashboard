@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-950;
+  }
+}
+
+/* Custom scrollbar for chatbot and textareas */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print utility styles for professional PDF reports */
+@media print {
+  body {
+    background: white !important;
+    color: #0f172a !important;
+    font-size: 12px !important;
+  }
+  
+  /* Hide interactive, non-essential elements from the PDF report */
+  header, 
+  footer, 
+  button, 
+  .no-print,
+  #advisor-chat-sidebar,
+  .advisor-chat-trigger,
+  .plans-banner,
+  .review-input-section,
+  .alerts-setup-controls {
+    display: none !important;
+  }
+
+  /* Force cards to take full width and avoid column truncation */
+  .grid {
+    display: block !important;
+  }
+  
+  .grid > div {
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Custom Page breaks */
+  .page-break {
+    page-break-before: always !important;
+  }
+
+  /* Ensure text is dark and fully visible */
+  h1, h2, h3, h4, p, span, li, td, th {
+    color: #0f172a !important;
+  }
+
+  /* Make sure boxes are visible */
+  .bg-white, .bg-slate-50, .bg-emerald-50, .bg-rose-50, .bg-indigo-50 {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Custom header for printed reports */
+  .print-header {
+    display: block !important;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.print-header {
+  display: none;
+}
+
